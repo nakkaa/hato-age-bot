@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "538bb23326a06f1d4739ff6db8e024a3bf385224d8bef0c85a8983dd059fdee3"
+            "sha256": "829648499f67e96d14e3d2d6bccc6f47072a88a3e0a4959be9eca759901e2d14"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -2614,12 +2614,12 @@
         },
         "sqlfluff": {
             "hashes": [
-                "sha256:a027ded8bea1f10a4de6173e3f02363cba37ab9e344432292553549a24028931",
-                "sha256:a03a152e01824b2b636235fb2703270367bd6695d1644345a29f648a44f6319b"
+                "sha256:39822db2c6ad7dac9f6e43d36a3d086c503c051b09665d14a5bdf644770f6ef6",
+                "sha256:ae9ff821986b5b0dd1ea858392db7f0eb80343c2cdeee7900fa031f581e04643"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==3.2.4"
+            "version": "==3.2.5"
         },
         "tblib": {
             "hashes": [
