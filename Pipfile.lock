@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "483c4a4f18cf6eebe3a919eb1080e275c0141d2477c11b7fcf13a5832f104e07"
+            "sha256": "688d35ccd390dab83f8ba9243b52a2ee7ca5300a3dae2c58e20480f6a1728e40"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1660,12 +1660,12 @@
         },
         "slack-bolt": {
             "hashes": [
-                "sha256:f0f1e7223f0e5621a768d1efce470058619b4f4eacbec405625c8c813e489c20",
-                "sha256:feb3c97ed7c388318d6e007a9c1b50dd88b0d59e64ff1f8c4e770db30e890ec8"
+                "sha256:05ac2d454adfddfc629fb63c7a3723bd1432a24373119368bc81f2f52b029cbf",
+                "sha256:6860fc8693ca543b653c5d49a09b8b542f5fb7a02638342a7ddd18d8bc6f3ba0"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==1.21.1"
+            "version": "==1.21.2"
         },
         "slack-sdk": {
             "hashes": [
@@ -1694,7 +1694,7 @@
         },
         "sudden-death": {
             "git": "https://github.com/dev-hato/sudden-death",
-            "ref": "4af1beba763c9d17c798fae50239e5f235d72ddd"
+            "ref": "9503fadffb7989e21e111f3a34602a2ca3061a61"
         },
         "tqdm": {
             "hashes": [
@@ -1823,11 +1823,11 @@
         },
         "werkzeug": {
             "hashes": [
-                "sha256:02c9eb92b7d6c06f31a782811505d2157837cea66aaede3e217c7c27c039476c",
-                "sha256:34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"
+                "sha256:033bc3783777078517f32ae3ba9e86e9bc38bdbf139b1a5a3af9679a64ed1293",
+                "sha256:6e589e0b303561b8b1a61d363ee05b1d7de6ca12f27a3a25269ae6ee93e363fd"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==3.0.4"
+            "version": "==3.0.5"
         },
         "yarl": {
             "hashes": [
