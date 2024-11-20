@@ -26,11 +26,6 @@ jobs:
           # submodule: 'recursive'
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Install xz-utils
-        shell: bash
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xz-utils
       - name: Run shellcheck with reviewdog
         uses: reviewdog/action-shellcheck@v1
         with:
