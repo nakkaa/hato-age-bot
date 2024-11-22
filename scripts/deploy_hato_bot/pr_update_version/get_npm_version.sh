@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 DOCKER_CMD="npm --version"
-DEPENDABOT_NPM_VERSION="$(docker run ghcr.io/dependabot/dependabot-core sh -c "${DOCKER_CMD}")"
-echo "Dependabot npm version:" "${DEPENDABOT_NPM_VERSION}"
+DEPENDABOT_NPM_VERSION="9.6.5"
 cp .env.example .env
 export TAG_NAME="${HEAD_REF//\//-}"
 docker compose pull
