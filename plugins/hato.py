@@ -351,7 +351,7 @@ def amedas(client: BaseClient, place: str):
 @action("電力", with_client=True)
 def electricity_demand(client: BaseClient):
     """東京電力管内の電力使用率を表示する"""
-    url = "https://www.tepco.co.jp/forecast/html/images/juyo-d-j.csv"
+    url = "https://www.tepco.co.jp/forecast/html/images/juyo-d1-j.csv"
     res = requests.get(url)
 
     if res.status_code != 200:
