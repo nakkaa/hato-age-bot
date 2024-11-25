@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1f0665f588b82b49b4bf92578cdb82462408314c44c81cdd6fc5005b447ad356"
+            "sha256": "e3125729c3b112dc3f108be00161da56c43e9ea5639db8f97a77a26906eb287f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1117,12 +1117,12 @@
         },
         "openai": {
             "hashes": [
-                "sha256:446e08918f8dd70d8723274be860404c8c7cc46b91b93bbc0ef051f57eb503c1",
-                "sha256:6c0975ac8540fe639d12b4ff5a8e0bf1424c844c4a4251148f59f06c4b2bd5db"
+                "sha256:471324321e7739214f16a544e801947a046d3c5d516fae8719a317234e4968d3",
+                "sha256:d10d96a4f9dc5f05d38dea389119ec8dcd24bc9698293c8357253c601b4a77a5"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==1.55.0"
+            "version": "==1.55.1"
         },
         "opencv-python": {
             "hashes": [
@@ -1685,15 +1685,15 @@
         },
         "sudden-death": {
             "git": "https://github.com/dev-hato/sudden-death",
-            "ref": "22bf468ac11d36680c33bc27b18ef5019ff10999"
+            "ref": "ffec40b136c552d746b7b969580b5e693aed7e91"
         },
         "tqdm": {
             "hashes": [
-                "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be",
-                "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"
+                "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2",
+                "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.67.0"
+            "version": "==4.67.1"
         },
         "typing-extensions": {
             "hashes": [
@@ -2622,11 +2622,11 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:0cd8af9d56911acab92182e88d763100d4788bdf421d251616040cc4d44863be",
-                "sha256:fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"
+                "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2",
+                "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.67.0"
+            "version": "==4.67.1"
         },
         "types-toml": {
             "hashes": [
