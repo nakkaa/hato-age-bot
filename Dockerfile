@@ -1,4 +1,4 @@
-FROM python:3.13.0-slim@sha256:eda73cafdf051c76185375d7c20c447fb96252d01c57e482bea7551dba2e44df AS base
+FROM python:3.13.0-slim@sha256:0de818129b26ed8f46fd772f540c80e277b67a28229531a1ba0fdacfaed19bcb AS base
 
 # バージョン情報に表示する commit hash を埋め込む
 FROM base AS commit-hash
