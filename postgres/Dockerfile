@@ -1,4 +1,4 @@
-FROM postgres:15.10-bullseye@sha256:2a02f5ec0473281908c96f9f3687e6c077b97fdf282e6d45ce07795bbe41f00f
+FROM postgres:15.10-bullseye@sha256:d294ce1dfd4e4f2bb325205595425a7e461df42b3d521907b4221453b1e32c25
 
 RUN find / -type f -perm /u+s -ignore_readdir_race -exec chmod u-s {} \; && \
     find / -type f -perm /g+s -ignore_readdir_race -exec chmod g-s {} \;
