@@ -362,6 +362,11 @@ def electricity_demand(client: BaseClient):
     df_base = pd.read_csv(res_io, encoding="shift_jis", skiprows=12, index_col="TIME")
     df_percent = df_base[:24]["使用率(%)"].dropna().astype(int)
     latest_data = df_percent[df_percent > 0]
+
+    if latest_data.empty:
+        client.post("東京電力管内の電力使用率を取得できなかったっぽ......")
+        return
+
     client.post(
         f"東京電力管内の電力使用率をお知らせするっぽ！\n"
         f"{latest_data.index[-1]}時点 {latest_data[-1]}%"
