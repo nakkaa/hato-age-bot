@@ -11,12 +11,12 @@ from tempfile import NamedTemporaryFile
 from typing import List, Optional
 
 import matplotlib.pyplot as plt
-from openai import RateLimitError
 import pandas as pd
 import puremagic
 import requests
 from git import Repo
 from git.exc import GitCommandNotFound, InvalidGitRepositoryError
+from openai import RateLimitError
 
 import slackbot_settings as conf
 from library.chat_gpt import chat_gpt, image_create
@@ -490,7 +490,7 @@ def image_generate(client: BaseClient, message: str):
     try:
         url = image_create(message=message)
     except RateLimitError as e:
-        if e.code == 'insufficient_quota':
+        if e.code == "insufficient_quota":
             return "栄養が足りなくて頭がうまく働かないっぽ......。このコマンドを使いたい場合は飼い主に相談してくれっぽ。"
         else:
             raise e
