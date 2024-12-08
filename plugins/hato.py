@@ -11,6 +11,7 @@ from tempfile import NamedTemporaryFile
 from typing import List, Optional
 
 import matplotlib.pyplot as plt
+from openai import RateLimitError
 import pandas as pd
 import puremagic
 import requests
@@ -486,8 +487,13 @@ def image_generate(client: BaseClient, message: str):
     """
     画像生成を行う
     """
-
-    url = image_create(message=message)
+    try:
+        url = image_create(message=message)
+    except RateLimitError as e:
+        if e.code == 'insufficient_quota':
+            return "栄養が足りなくて頭がうまく働かないっぽ......。このコマンドを使いたい場合は飼い主に相談してくれっぽ。"
+        else:
+            raise e
 
     if url is None:
         return "画像を生成できなかったっぽ......"
