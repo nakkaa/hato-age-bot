@@ -43,7 +43,7 @@ RUN apt-get update && \
       uv sync --python-preference system; \
     fi && \
     npm install && \
-    pip uninstall -y uv && \
+    pip uninstall -y uv virtualenv && \
     apt-get remove -y git gcc libc6-dev gnupg && \
     apt-get autoremove -y && \
     apt-get clean && \
