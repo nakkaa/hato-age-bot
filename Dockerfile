@@ -38,9 +38,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     pip install -r requirements.txt --no-cache-dir && \
     if [ "${ENV}" = 'dev' ]; then \
-      uv sync --system --dev; \
+      uv pip install --system --dev; \
     else \
-      uv sync --system; \
+      uv pip install --system; \
     fi && \
     npm install && \
     pip uninstall -y uv && \
