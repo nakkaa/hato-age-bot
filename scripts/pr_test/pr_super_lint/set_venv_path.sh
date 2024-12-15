@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+uv venv
+
 # 環境ファイルを使ってenvにsetしている
 # 参考URL: https://bit.ly/2KJhjqk
 VENV_PATH=".venv"
