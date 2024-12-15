@@ -80,7 +80,7 @@
 4. 必要に応じてパッケージをインストールします。
 
    ```sh
-   uv pip install
+   uv pip sync
    npm install
    ```
 
@@ -143,7 +143,7 @@ npm run lint
 開発に必要なパッケージと `pre-commit` のインストールを行います。
 
 ```sh
-uv pip install
+uv pip sync --dev
 uv pre-commit install
 ```
 
