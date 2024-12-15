@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-uv venv
-
 # 環境ファイルを使ってenvにsetしている
 # 参考URL: https://bit.ly/2KJhjqk
 VENV_PATH=".venv"
@@ -12,4 +10,4 @@ VENV_PATH=".venv"
 # また、元ディレクトリにも残っているので、キャッシュが作られる
 cp -r "${VENV_PATH}" "${DEST_PATH}"
 
-ls "${DEST_PATH}/lib/python3.13/site-packages"
+ls "${VENV_PATH}/lib/python3.13/site-packages"
