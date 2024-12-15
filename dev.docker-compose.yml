@@ -25,6 +25,8 @@ services:
         - action: rebuild
           path: ./slackbot_settings.py
         - action: rebuild
+          path: ./pyproject.toml
+        - action: rebuild
           path: ./package.json
         - action: rebuild
           path: ./package-lock.json
