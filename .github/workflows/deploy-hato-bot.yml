@@ -99,8 +99,8 @@ jobs:
         env:
           DOCKER_CONTENT_TRUST: 1
         run: docker compose up -d --wait
-  # .python-version をDockerイメージと同期させる
-  update-version-python-version:
+  # pyproject.toml をDockerイメージと同期させる
+  update-version-pyproject:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -125,8 +125,8 @@ jobs:
       - uses: dev-hato/actions-diff-pr-management@8d475e5bc78f61c40024d4859b79134b66f788d2 # v1.2.1
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
-          branch-name-prefix: fix-version-python-version
-          pr-title-prefix: .python-versionを直してあげたよ！
+          branch-name-prefix: fix-version-pyproject
+          pr-title-prefix: pyproject.tomlを直してあげたよ！
   pr-update-version:
     runs-on: ubuntu-latest
     needs: deploy_docker_image
@@ -210,14 +210,14 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     needs:
-      - update-version-python-version
+      - update-version-pyproject
       - pr-check-npm
       - update-dockle
       - dockle
     steps:
-      - if: needs.update-dockle.result == 'success' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.repository != github.event.pull_request.head.repo.full_name) || (needs.update-version-python-version.result == 'success' && (github.event.action == 'closed' || (needs.pr-check-npm.result == 'success' && needs.dockle.result == 'success'))))
+      - if: needs.update-dockle.result == 'success' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.repository != github.event.pull_request.head.repo.full_name) || (needs.update-version-pyproject.result == 'success' && (github.event.action == 'closed' || (needs.pr-check-npm.result == 'success' && needs.dockle.result == 'success'))))
         run: exit 0
-      - if: ${{ !(needs.update-dockle.result == 'success' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.repository != github.event.pull_request.head.repo.full_name) || (needs.update-version-python-version.result == 'success' && (github.event.action == 'closed' || (needs.pr-check-npm.result == 'success' && needs.dockle.result == 'success'))))) }}
+      - if: ${{ !(needs.update-dockle.result == 'success' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.repository != github.event.pull_request.head.repo.full_name) || (needs.update-version-pyproject.result == 'success' && (github.event.action == 'closed' || (needs.pr-check-npm.result == 'success' && needs.dockle.result == 'success'))))) }}
         run: exit 1
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
