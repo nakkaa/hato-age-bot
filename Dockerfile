@@ -38,9 +38,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     pip install -r requirements.txt --no-cache-dir && \
     if [ "${ENV}" = 'dev' ]; then \
-      uv sync --dev; \
+      uv sync --system --dev; \
     else \
-      uv sync; \
+      uv sync --system; \
     fi && \
     npm install && \
     apt-get remove -y git gcc libc6-dev gnupg && \
@@ -54,7 +54,7 @@ RUN apt-get update && \
 USER nonroot
 
 # Matplotlib用のフォントキャッシュ生成
-RUN uv run python -c 'import matplotlib.pyplot'
+RUN python -c 'import matplotlib.pyplot'
 
 COPY *.py ./
 COPY library library
@@ -66,4 +66,4 @@ COPY --from=commit-hash slackbot_settings.py slackbot_settings.py
 
 ENV GIT_PYTHON_REFRESH=quiet
 ENV NODE_OPTIONS="--max-old-space-size=512"
-CMD ["uv", "python", "entrypoint.py"]
+CMD ["python", "entrypoint.py"]
