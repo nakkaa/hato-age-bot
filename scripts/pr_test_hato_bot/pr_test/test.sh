@@ -2,4 +2,4 @@
 
 cp .env.example .env
 source .venv/bin/activate
-uv python -m unittest
+uv tool run unittest
