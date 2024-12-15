@@ -80,7 +80,7 @@
 4. 必要に応じてパッケージをインストールします。
 
    ```sh
-   pipenv install
+   uv install
    npm install
    ```
 
@@ -127,7 +127,7 @@ npm run lint
 - 鳩botに対しコマンドを実行したいときは `post_command.py` を使うと便利です。
 
   ```sh
-  pipenv run python post_command.py --channel {投稿先のチャンネルのchannel id} \
+  uv python post_command.py --channel {投稿先のチャンネルのchannel id} \
                                     --user {自分のuser_id} \
                                     "{hato-botのコマンド}"
   ```
@@ -143,13 +143,13 @@ npm run lint
 開発に必要なパッケージと `pre-commit` のインストールを行います。
 
 ```sh
-pipenv install --dev
-pipenv run pre-commit install
+uv install --dev
+uv pre-commit install
 ```
 
 #### 補足
 
-- コードを整形する場合は `pipenv run autopep8 --in-place --recursive .` を実行します。
+- コードを整形する場合は `uv autopep8 --in-place --recursive .` を実行します。
 
 ## 鳩botコマンド一覧
 

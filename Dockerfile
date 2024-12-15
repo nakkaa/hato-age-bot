@@ -18,8 +18,8 @@ WORKDIR /usr/src/app
 
 COPY .npmrc .npmrc
 COPY requirements.txt requirements.txt
-COPY Pipfile Pipfile
-COPY Pipfile.lock Pipfile.lock
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 
@@ -38,12 +38,11 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     pip install -r requirements.txt --no-cache-dir && \
     if [ "${ENV}" = 'dev' ]; then \
-      pipenv install --system --dev; \
+      uv sync --frozen --dev; \
     else \
-      pipenv install --system; \
+      uv sync --frozen; \
     fi && \
     npm install && \
-    pip uninstall -y pipenv virtualenv && \
     apt-get remove -y git gcc libc6-dev gnupg && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -54,8 +53,10 @@ RUN apt-get update && \
     chown -R nonroot /usr/src/app
 USER nonroot
 
+ENV PATH="/usr/src/app/.venv/bin:$PATH"
+
 # Matplotlib用のフォントキャッシュ生成
-RUN python -c 'import matplotlib.pyplot'
+RUN uv python -c 'import matplotlib.pyplot'
 
 COPY *.py ./
 COPY library library
@@ -67,4 +68,4 @@ COPY --from=commit-hash slackbot_settings.py slackbot_settings.py
 
 ENV GIT_PYTHON_REFRESH=quiet
 ENV NODE_OPTIONS="--max-old-space-size=512"
-CMD ["python", "entrypoint.py"]
+CMD ["uv", "python", "entrypoint.py"]
