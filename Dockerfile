@@ -56,7 +56,7 @@ USER nonroot
 ENV PATH="/usr/src/app/.venv/bin:$PATH"
 
 # Matplotlib用のフォントキャッシュ生成
-RUN uv python -c 'import matplotlib.pyplot'
+RUN uv run python -c 'import matplotlib.pyplot'
 
 COPY *.py ./
 COPY library library
