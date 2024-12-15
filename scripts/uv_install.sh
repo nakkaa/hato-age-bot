@@ -2,4 +2,4 @@
 
 uv --version
 uv python install
-uv install --dev
+uv pip install --dev
