@@ -37,11 +37,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     pip install -r requirements.txt --no-cache-dir && \
-    if [ "${ENV}" = 'dev' ]; then \
-      uv sync --frozen --dev; \
-    else \
-      uv sync --frozen; \
-    fi && \
+    uv sync --frozen && \
     npm install && \
     apt-get remove -y git gcc libc6-dev gnupg && \
     apt-get autoremove -y && \

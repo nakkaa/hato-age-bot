@@ -143,7 +143,7 @@ npm run lint
 開発に必要なパッケージと `pre-commit` のインストールを行います。
 
 ```sh
-uv pip install --dev
+uv pip install
 uv pre-commit install
 ```
 
