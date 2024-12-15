@@ -99,7 +99,7 @@ jobs:
         env:
           DOCKER_CONTENT_TRUST: 1
         run: docker compose up -d --wait
-  # .python-version をDockerイメージと同期させる
+  # pyproject.toml をDockerイメージと同期させる
   update-version-python-version:
     runs-on: ubuntu-latest
     permissions:
