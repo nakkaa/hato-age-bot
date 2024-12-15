@@ -20,7 +20,9 @@ PyProjectDependencies = list[str]
 PyProject = dict[str, dict[str, PyProjectDependencies]]
 
 
-def is_pyproject_dependencies(pyproject_dependencies) -> TypeGuard[PyProjectDependencies]:
+def is_pyproject_dependencies(
+    pyproject_dependencies,
+) -> TypeGuard[PyProjectDependencies]:
     """
     データがPyProjectDependencies型であるかを判定する
     :param pyproject_dependencies: 判定対象のデータ
@@ -107,7 +109,11 @@ def get_imported_packages(project_root: Path) -> set[str]:
     imported_packages: set[str] = set()
 
     for file in project_root.glob("**/*.py"):
-        if str(file).endswith("setup.py") or "node_modules" in str(file) or ".venv" in str(file):
+        if (
+            str(file).endswith("setup.py")
+            or "node_modules" in str(file)
+            or ".venv" in str(file)
+        ):
             continue
 
         with open(str(file), "r") as python_file:
@@ -130,19 +136,29 @@ def get_pyproject_packages(pyproject: PyProject) -> set[str] | NoReturn:
     """
     pyproject_packages: set[str] = set()
 
-    for pyproject_dependencies in [pyproject["project"]["dependencies"], pyproject["dependency-groups"]["dev"]]:
+    for pyproject_dependencies in [
+        pyproject["project"]["dependencies"],
+        pyproject["dependency-groups"]["dev"],
+    ]:
         if not is_pyproject_dependencies(pyproject_dependencies):
-            raise TypeError("Failed to cast to PyProjectDependencies: " + str(pyproject_dependencies))
+            raise TypeError(
+                "Failed to cast to PyProjectDependencies: "
+                + str(pyproject_dependencies)
+            )
 
         for pyproject_dependency in pyproject_dependencies:
             package_data = re.split("[\\[<=>@]", pyproject_dependency)
             if 0 < len(package_data):
-                pyproject_packages.add(package_data[0].strip().lower().replace("_", "-"))
+                pyproject_packages.add(
+                    package_data[0].strip().lower().replace("_", "-")
+                )
 
     return pyproject_packages
 
 
-def exist_package_in_pyproject(packages: list[str], pyproject_packages: set[str]) -> bool:
+def exist_package_in_pyproject(
+    packages: list[str], pyproject_packages: set[str]
+) -> bool:
     """
     与えられたパッケージ群のいずれかがpyproject.toml内に存在するかを判定する
     :param packages: パッケージ群
@@ -200,7 +216,10 @@ def main():
     pyproject = toml.load(pyproject_path)
 
     if not is_pyproject_dependencies(pyproject["project"]["dependencies"]):
-        raise TypeError("Failed to cast to PyProjectDependencies: " + str(pyproject["project"]["dependencies"]))
+        raise TypeError(
+            "Failed to cast to PyProjectDependencies: "
+            + str(pyproject["project"]["dependencies"])
+        )
 
     # プロジェクト内のPythonファイルでimportされているがpyproject.toml内には存在しないパッケージをpyproject.tomlの「project.dependencies」セクションに追加する
     pyproject["project"]["dependencies"] += get_missing_packages(
