@@ -14,3 +14,4 @@ services:
         platforms:
           - linux/amd64
     image: ghcr.io/${REPOSITORY:-dev-hato/hato-bot}/commit-hash:${TAG_NAME}
+    platform: linux/amd64
