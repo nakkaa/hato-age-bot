@@ -127,7 +127,7 @@ npm run lint
 - 鳩botに対しコマンドを実行したいときは `post_command.py` を使うと便利です。
 
   ```sh
-  uv python post_command.py --channel {投稿先のチャンネルのchannel id} \
+  uv run post_command.py --channel {投稿先のチャンネルのchannel id} \
                                     --user {自分のuser_id} \
                                     "{hato-botのコマンド}"
   ```
