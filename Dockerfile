@@ -43,6 +43,7 @@ RUN apt-get update && \
       uv sync --system; \
     fi && \
     npm install && \
+    pip uninstall -y uv && \
     apt-get remove -y git gcc libc6-dev gnupg && \
     apt-get autoremove -y && \
     apt-get clean && \
