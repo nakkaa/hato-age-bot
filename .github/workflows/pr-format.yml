@@ -26,10 +26,15 @@ jobs:
           # submodule: 'recursive'
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Get uv version
+        id: get_uv_version
+        if: github.event_name != 'pull_request' || github.event.action != 'closed'
+        run: echo "uv_version=$(sed -e 's/uv==//g' requirements.txt)" >> "$GITHUB_OUTPUT"
       - name: Set up uv
         uses: astral-sh/setup-uv@v4.2.0
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
+          version: ${{steps.get_uv_version.outputs.uv_version}}
           enable-cache: true
       - name: Install dependencies
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
