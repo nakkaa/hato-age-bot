@@ -16,6 +16,8 @@ jobs:
           fetch-depth: 0
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
       - name: Install uv
         run: bash "${GITHUB_WORKSPACE}/scripts/uv_install.sh"
       - name: Set venv path

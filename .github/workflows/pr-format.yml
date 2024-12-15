@@ -29,6 +29,8 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v4
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
+        with:
+          enable-cache: true
       - name: Install dependencies
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: bash "${GITHUB_WORKSPACE}/scripts/uv_install.sh"
