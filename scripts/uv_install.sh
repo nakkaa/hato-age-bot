@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-pip install -r requirements.txt
-pipenv --version
-pipenv install --dev
+uv --version
+uv python install
+uv sync --dev
