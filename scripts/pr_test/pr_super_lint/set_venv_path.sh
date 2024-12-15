@@ -11,3 +11,5 @@ VENV_PATH=".venv"
 # ここに cp -r することで、super-linterのなかに.venvを配置できる
 # また、元ディレクトリにも残っているので、キャッシュが作られる
 cp -r "${VENV_PATH}" "${DEST_PATH}"
+
+ls "${DEST_PATH}/lib/python3.13/site-packages"
