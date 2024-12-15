@@ -13,5 +13,4 @@ services:
       x-bake:
         platforms:
           - linux/amd64
-          - linux/arm64
     image: ghcr.io/${REPOSITORY:-dev-hato/hato-bot}/commit-hash:${TAG_NAME}
