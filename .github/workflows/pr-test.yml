@@ -14,12 +14,11 @@ jobs:
         with:
           submodules: "recursive"
           fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4.2.0
         with:
-          python-version-file: .python-version
-          cache: pipenv
-      - name: Install pipenv
+          enable-cache: true
+      - name: Install uv
         run: bash "${GITHUB_WORKSPACE}/scripts/uv_install.sh"
       - name: Set venv path
         env:
