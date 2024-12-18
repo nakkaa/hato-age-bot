@@ -532,7 +532,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = "==1.0.1" },
     { name = "requests", specifier = "==2.32.3" },
     { name = "slack-bolt", specifier = "==1.21.3" },
-    { name = "slack-sdk", specifier = "==3.33.5" },
+    { name = "slack-sdk", specifier = "==3.34.0" },
     { name = "sudden-death", git = "https://github.com/dev-hato/sudden-death?rev=master" },
     { name = "websockets", specifier = "==14.1" },
 ]
@@ -1341,11 +1341,11 @@ wheels = [
 
 [[package]]
 name = "slack-sdk"
-version = "3.33.5"
+version = "3.34.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/48/06/2b567dbd5869b4a27e0612bf0cd5a8b852a94a2fc877a4488f420b8506ed/slack_sdk-3.33.5.tar.gz", hash = "sha256:a5e74c00c99dc844ad93e501ab764a20d86fa8184bbc9432af217496f632c4ee", size = 233265 }
+sdist = { url = "https://files.pythonhosted.org/packages/6e/ff/6eb67fd5bd179fa804dbd859d88d872d3ae343955e63a319a73a132d406f/slack_sdk-3.34.0.tar.gz", hash = "sha256:ff61db7012160eed742285ea91f11c72b7a38a6500a7f6c5335662b4bc6b853d", size = 233629 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fc/1c/b8e4bc3c26ebcdf360fd70c58a7bc01552f440fd119523204fa005681a40/slack_sdk-3.33.5-py2.py3-none-any.whl", hash = "sha256:b8cccadfa3d4005a5e6529f52000d25c583f46173fda8e9136fdd2bc58923ff6", size = 292279 },
+    { url = "https://files.pythonhosted.org/packages/25/2d/8724ef191cb64907de1e4e4436462955501e00f859a53d0aa794d0d060ff/slack_sdk-3.34.0-py2.py3-none-any.whl", hash = "sha256:c61f57f310d85be83466db5a98ab6ae3bb2e5587437b54fa0daa8fae6a0feffa", size = 292480 },
 ]
 
 [[package]]
