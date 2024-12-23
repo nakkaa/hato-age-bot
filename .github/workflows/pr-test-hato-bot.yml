@@ -20,7 +20,7 @@ jobs:
         id: get_uv_version
         run: echo "uv_version=$(sed -e 's/uv==//g' requirements.txt)" >> "$GITHUB_OUTPUT"
       - name: Set up uv
-        uses: astral-sh/setup-uv@180f8b44399608a850e1db031fa65c77746566d3 # v5.0.1
+        uses: astral-sh/setup-uv@887a942a15af3a7626099df99e897a18d9e5ab3a # v5.1.0
         with:
           version: ${{steps.get_uv_version.outputs.uv_version}}
           enable-cache: true
