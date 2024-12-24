@@ -2,4 +2,4 @@
 
 uv --version
 uv python install
-uv sync --dev
+uv install --dev
