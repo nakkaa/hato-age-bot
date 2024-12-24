@@ -1390,15 +1390,6 @@ wheels = [
 ]
 
 [[package]]
-name = "sudden-death"
-version = "0.0.1"
-source = { git = "https://github.com/dev-hato/sudden-death?rev=master#53f103e9dbd831870e41a93eb547b3eb8cf869f6" }
-dependencies = [
-    { name = "click" },
-    { name = "pyperclip" },
-]
-
-[[package]]
 name = "tblib"
 version = "3.0.0"
 source = { registry = "https://pypi.org/simple" }
