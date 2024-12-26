@@ -24,7 +24,7 @@ dependencies = [
  "puremagic==1.28",
  "audioop-lts==0.2.1",
  "psycopg[binary,pool]==3.2.3",
- "sudden-death",
+ "sudden-death==0.0.1",
 ]
 
 [dependency-groups]
