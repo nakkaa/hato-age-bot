@@ -8,7 +8,7 @@ sed -i -e "s/pyink==.*\"/pyink==${pyink_version}\"/g" pyproject.toml
 uv sync --dev
 sudden_death_url="$(yq .tool.uv.sources.sudden-death.git pyproject.toml)"
 sudden_death_branch="$(yq .tool.uv.sources.sudden-death.branch pyproject.toml)"
-uv add "git+$sudden_death_url?branch=$sudden_death_branch"
+uv add "git+$sudden_death_url" --branch "$sudden_death_branch"
 uv tool run autopep8 --exit-code --in-place --recursive .
 uv tool run pyink --config .python-black .
 uv tool run isort --sp .isort.cfg .
