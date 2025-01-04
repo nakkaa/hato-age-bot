@@ -14,4 +14,4 @@ name = "pypi"
 url = "https://pypi.org/simple"
 
 [tool.uv.sources]
-sudden-death = { git = "https://github.com/dev-hato/sudden-death", branch = "replace_setup_py" }
+sudden-death = { git = "https://github.com/dev-hato/sudden-death", branch = "master" }
