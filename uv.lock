@@ -529,7 +529,7 @@ requires-dist = [
     { name = "requests", specifier = "==2.32.3" },
     { name = "slack-bolt", specifier = "==1.22.0" },
     { name = "slack-sdk", specifier = "==3.34.0" },
-    { name = "sudden-death", git = "https://github.com/dev-hato/sudden-death?branch=replace_setup_py" },
+    { name = "sudden-death", git = "https://github.com/dev-hato/sudden-death?branch=master" },
     { name = "websockets", specifier = "==14.1" },
 ]
 
@@ -1389,7 +1389,7 @@ wheels = [
 [[package]]
 name = "sudden-death"
 version = "0.0.1"
-source = { git = "https://github.com/dev-hato/sudden-death?branch=replace_setup_py#76e5e2c7935bcc9fe1b59c21a92dbbe2a656af49" }
+source = { git = "https://github.com/dev-hato/sudden-death?branch=master#88ee76a730571c82be27dca439cbb465ef2892e7" }
 dependencies = [
     { name = "click" },
     { name = "pyperclip" },
