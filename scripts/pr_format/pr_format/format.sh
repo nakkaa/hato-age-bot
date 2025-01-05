@@ -9,8 +9,8 @@ uv sync --dev
 sudden_death_url="$(yq .tool.uv.sources.sudden-death.git pyproject.toml)"
 
 if [ "$sudden_death_url" != 'null' ]; then
-  sudden_death_branch="$(yq .tool.uv.sources.sudden-death.branch pyproject.toml)"
-  uv add "git+$sudden_death_url" --branch "$sudden_death_branch"
+	sudden_death_branch="$(yq .tool.uv.sources.sudden-death.branch pyproject.toml)"
+	uv add "git+$sudden_death_url" --branch "$sudden_death_branch"
 fi
 
 uv tool run autopep8 --exit-code --in-place --recursive .
