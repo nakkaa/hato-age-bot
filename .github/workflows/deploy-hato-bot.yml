@@ -71,6 +71,7 @@ jobs:
         with:
           push: true
           files: docker-compose.yml,dev.base.docker-compose.yml
+          source: .
       - run: echo 'TAG_NAME=latest' >> "$GITHUB_ENV"
         if: ${{ github.event_name == 'release' }}
       - name: Build and push (build) (latest)
