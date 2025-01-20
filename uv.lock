@@ -535,7 +535,7 @@ requires-dist = [
 dev = [
     { name = "autopep8", specifier = "==2.3.2" },
     { name = "flake8", specifier = "==7.1.1" },
-    { name = "importlib-metadata", specifier = "==8.5.0" },
+    { name = "importlib-metadata", specifier = "==8.6.0" },
     { name = "isort", specifier = "==5.13.2" },
     { name = "mypy", specifier = "==1.14.1" },
     { name = "pre-commit", specifier = "==4.1.0" },
@@ -595,14 +595,14 @@ wheels = [
 
 [[package]]
 name = "importlib-metadata"
-version = "8.5.0"
+version = "8.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "zipp" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz", hash = "sha256:71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7", size = 55304 }
+sdist = { url = "https://files.pythonhosted.org/packages/49/a1/7ff55df64939d27b4c7b2e263f2aacc9eb6a67d6bb76a6510a9e0017886f/importlib_metadata-8.6.0.tar.gz", hash = "sha256:41de0ebd24696ce441af2951a79d09a0a235f9af08e30199a8bd6e8cd11aba4d", size = 55712 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a0/d9/a1e041c5e7caa9a05c925f4bdbdfb7f006d1f74996af53467bc394c97be7/importlib_metadata-8.5.0-py3-none-any.whl", hash = "sha256:45e54197d28b7a7f1559e60b95e7c567032b602131fbd588f1497f47880aa68b", size = 26514 },
+    { url = "https://files.pythonhosted.org/packages/1f/df/f197d6aa1fce78de27fa78dd92192e670f481ddccadf50de0fc69aa67dcd/importlib_metadata-8.6.0-py3-none-any.whl", hash = "sha256:bf530e3215e221140ce730fdb932e31cc0a8f8171946b7c9c2b3f9443849378b", size = 26927 },
 ]
 
 [[package]]
