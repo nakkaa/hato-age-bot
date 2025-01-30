@@ -9,14 +9,7 @@ import slackbot_settings as conf
 
 class Database:
     """DBを操作するためのベースクラス"""
-    conn: psycopg.Connection
-
-    def __init__(self):
-        try:
-            self.conn = psycopg.connect(conf.DB_URL)
-        except psycopg.Error as _e:
-            print("Can not connect to database.")
-            raise _e
+    conn: psycopg.Connection = psycopg.connect(conf.DB_URL)
 
     def __enter__(self):
         return self
