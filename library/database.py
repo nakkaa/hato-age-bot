@@ -9,6 +9,7 @@ import slackbot_settings as conf
 
 class Database:
     """DBを操作するためのベースクラス"""
+    conn: psycopg.Connection
 
     def __init__(self):
         try:
