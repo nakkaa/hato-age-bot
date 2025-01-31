@@ -6,7 +6,7 @@ from time import sleep
 
 import psycopg
 
-from library.database import Database
+from library.database import execute_sql
 
 
 def wait_db() -> None:
@@ -16,9 +16,8 @@ def wait_db() -> None:
 
     for i in range(max_attempt):
         try:
-            with Database() as _db:
-                _db.execute_sql("SELECT 1")
-                break
+            execute_sql("SELECT 1")
+            break
         except psycopg.OperationalError as _e:
             if i == max_attempt - 1:
                 raise _e

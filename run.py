@@ -12,6 +12,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 
 import discord
+import psycopg
 import slack_bolt
 import websockets
 from flask import Flask, jsonify, request
@@ -27,7 +28,6 @@ from library.clientclass import (
     MisskeyClient,
     SlackClient,
 )
-from library.database import Database
 from plugins import analyze
 
 app = Flask(__name__)
@@ -52,27 +52,29 @@ def slack_main():
         print(f"authed_users: {authed_users}")
         print(f"client_msg_id: {client_msg_id}")
 
-        with Database() as _db, _db.conn.cursor() as cursor:
-            cursor.execute(
-                "SELECT client_msg_id FROM slack_client_msg_id WHERE client_msg_id = %s LIMIT 1",
-                (client_msg_id,),
-            )
+        with psycopg.connect(conf.DB_URL) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    "SELECT client_msg_id FROM slack_client_msg_id WHERE client_msg_id = %s LIMIT 1",
+                    (client_msg_id,),
+                )
 
-            if cursor.fetchone():
-                print("skip")
-                return
+                if cursor.fetchone():
+                    print("skip")
+                    return
 
-            cursor.execute(
-                "DELETE FROM slack_client_msg_id "
-                "WHERE created_at < CURRENT_TIMESTAMP - interval '10 minutes'",
-                (client_msg_id,),
-            )
-            cursor.execute(
-                "INSERT INTO slack_client_msg_id(client_msg_id, created_at) "
-                "VALUES(%s, CURRENT_TIMESTAMP)",
-                (client_msg_id,),
-            )
-            _db.conn.commit()
+                cursor.execute(
+                    "DELETE FROM slack_client_msg_id "
+                    "WHERE created_at < CURRENT_TIMESTAMP - interval '10 minutes'",
+                    (client_msg_id,),
+                )
+                cursor.execute(
+                    "INSERT INTO slack_client_msg_id(client_msg_id, created_at) "
+                    "VALUES(%s, CURRENT_TIMESTAMP)",
+                    (client_msg_id,),
+                )
+
+            conn.commit()
 
         with ThreadPoolExecutor(max_workers=3) as tpe:
             for block in blocks:
