@@ -28,7 +28,9 @@ class VocabularyDatabase:
         with psycopg.connect(conf.DB_URL) as conn:
             with conn.cursor() as cursor:
                 try:
-                    cursor.execute("SELECT word FROM vocabulary ORDER BY random() LIMIT 1;")
+                    cursor.execute(
+                        "SELECT word FROM vocabulary ORDER BY random() LIMIT 1;"
+                    )
                     results = cursor.fetchone()
                 except psycopg.Error:
                     print("Can not execute sql(select_random).")
