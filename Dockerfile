@@ -1,4 +1,4 @@
-FROM python:3.12.6-slim AS base
+FROM python:3.13.1-slim@sha256:031ebf3cde9f3719d2db385233bcb18df5162038e9cda20e64e08f49f4b47a2f AS base
 
 # バージョン情報に表示する commit hash を埋め込む
 FROM base AS commit-hash
@@ -18,8 +18,8 @@ WORKDIR /usr/src/app
 
 COPY .npmrc .npmrc
 COPY requirements.txt requirements.txt
-COPY Pipfile Pipfile
-COPY Pipfile.lock Pipfile.lock
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 
@@ -38,12 +38,12 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     pip install -r requirements.txt --no-cache-dir && \
     if [ "${ENV}" = 'dev' ]; then \
-      pipenv install --system --dev; \
+      uv sync --frozen --dev; \
     else \
-      pipenv install --system; \
+      uv sync --frozen; \
     fi && \
     npm install && \
-    pip uninstall -y pipenv virtualenv && \
+    pip uninstall -y uv virtualenv && \
     apt-get remove -y git gcc libc6-dev gnupg && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -53,6 +53,8 @@ RUN apt-get update && \
     useradd -l -m -s /bin/bash -N -u "1000" "nonroot" && \
     chown -R nonroot /usr/src/app
 USER nonroot
+
+ENV PATH="/usr/src/app/.venv/bin:$PATH"
 
 # Matplotlib用のフォントキャッシュ生成
 RUN python -c 'import matplotlib.pyplot'
